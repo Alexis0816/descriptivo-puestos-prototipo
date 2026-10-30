@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, CheckCircle2, Lightbulb } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, ChevronDown, Lightbulb } from 'lucide-react';
 import { guideSections } from './data';
 import GuideExtras from './GuideExtras.jsx';
 
@@ -21,7 +21,7 @@ export default function GuidePage({ Shell }) {
   return <Shell><div className="guide-workspace">
     <header className="guide-workspace-heading"><div><span className="eyebrow">CENTRO DE AYUDA</span><h1>Guía de descriptivos</h1><p>Aprende a tu ritmo, sin salir de tu espacio de trabajo.</p></div></header>
 
-    <div className="panel guide-workspace-panel"><div className="guide-workspace-nav"><nav className="guide-section-tabs" aria-label="Secciones de la guía">{guideSections.map((item, index) => <button type="button" key={item.title} className={lesson.sectionIndex === index ? 'guide-section-active' : ''} onClick={() => selectLesson(lessons.findIndex(entry => entry.sectionIndex === index))}>{item.title}</button>)}</nav><nav className="guide-lesson-tabs" aria-label="Lecciones de la sección">{section.lessons.map((item, index) => <button type="button" key={item.title} className={current === sectionStart + index ? 'guide-lesson-active' : ''} aria-current={current === sectionStart + index ? 'step' : undefined} onClick={() => selectLesson(sectionStart + index)}><span>{String(sectionStart + index + 1).padStart(2, '0')}</span>{item.title}</button>)}</nav></div>
+    <div className="panel guide-workspace-panel"><div className="guide-workspace-nav"><nav className="guide-section-tabs" aria-label="Secciones de la guía">{guideSections.map((item, index) => <button type="button" key={item.title} className={lesson.sectionIndex === index ? 'guide-section-active' : ''} onClick={() => selectLesson(lessons.findIndex(entry => entry.sectionIndex === index))}>{item.title}</button>)}</nav><span className="guide-nav-divider"/><label className="guide-lesson-select"><span>Lección</span><span className="select-wrap"><select value={current} onChange={e => selectLesson(Number(e.target.value))} aria-label="Ir a la lección de esta sección">{section.lessons.map((item, index) => <option key={item.title} value={sectionStart + index}>{String(sectionStart + index + 1).padStart(2, '0')} · {item.title}</option>)}</select><ChevronDown size={15}/></span></label></div>
 
     <div className="guide-workspace-body" ref={bodyRef}><div className="guide-workspace-content"><div className="guide-meta"><span>{lesson.section}</span><span className="meta-dot"/> {lesson.duration} de lectura <span className="meta-dot"/> Lección {current + 1} de {lessons.length}</div><h2>{lesson.title}<span>.</span></h2><p className="guide-subtitle">{lesson.subtitle}</p><p className="guide-intro">{lesson.text}</p>
       {lesson.kind ? <GuideExtras key={lesson.title} kind={lesson.kind}/> : <div className="guide-highlight"><span><Lightbulb size={23}/></span><div><strong>Una idea para empezar</strong><p>Conoce la intención de este paso y aplica las recomendaciones a tu propio descriptivo.</p></div></div>}
