@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Abre la dirección local que muestre Vite (por defecto `http://localhost:5173`). Para compilar: `npm run build`. Para GitHub Pages: `npm run build:pages`.
+Abre la dirección local que muestre Vite (por defecto `http://localhost:5173`). `npm run build` compila con la base de GitHub Pages; `npm run dev` conserva la raíz local.
 
 ## Recorrido
 
@@ -24,4 +24,4 @@ El encabezado compacto permanece fijo y permite volver al menú; no hay barra la
 
 Usa **datos de demostración** y guarda altas/ediciones en `localStorage` del navegador. Al guardar vuelve al menú con una confirmación, porque las consultas están bloqueadas temporalmente. La identidad «Usuario de demostración» y el rol Administrador son ejemplos visuales, **no autenticación ni control de acceso**. No hay conexión con Power Apps, Power Automate, SharePoint ni SQL. La ilustración y el isotipo son aproximaciones dibujadas en SVG, no activos corporativos oficiales.
 
-El PDF de referencia y `graphify-out/` permanecen en el equipo y **no se publican**. El despliegue usa GitHub Actions; las rutas del prototipo emplean `#/` para que los enlaces internos funcionen en GitHub Pages.
+El PDF de referencia y `graphify-out/` permanecen en el equipo y **no se publican**. Para publicar ejecuta `npm run deploy` (compila mediante `predeploy` y sube `dist/` a `gh-pages`). Luego configura **Settings → Pages → Deploy from a branch → gh-pages → /(root)**. Las rutas emplean `#/` para que los enlaces internos funcionen en GitHub Pages.
