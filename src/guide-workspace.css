@@ -37,70 +37,6 @@
   margin: 0;
 }
 
-.guide-heading-actions {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.guide-heading-actions .btn {
-  min-height: 38px;
-  padding: 8px 12px;
-  font-size: 11px;
-}
-
-.guide-download-wrap {
-  position: relative;
-  display: inline-flex;
-}
-
-.guide-download {
-  background: #fff8f1;
-  border-color: #ffd8bc;
-  color: #b65a20;
-  box-shadow: none;
-  cursor: help;
-}
-
-.guide-download:hover,
-.guide-download:focus-visible {
-  background: #ffefdf;
-  transform: none;
-}
-
-.guide-download > span {
-  border-radius: 4px;
-  background: #fff;
-  color: #a2714e;
-  padding: 3px 5px;
-  font-size: 9px;
-}
-
-.guide-download-tooltip {
-  position: absolute;
-  z-index: 5;
-  top: calc(100% + 8px);
-  right: 0;
-  width: 258px;
-  padding: 10px 12px;
-  border-radius: 7px;
-  background: #172b60;
-  color: white;
-  box-shadow: 0 9px 25px #1a2e5960;
-  font-size: 11px;
-  line-height: 1.45;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-4px);
-  transition: opacity .15s, transform .15s;
-}
-
-.guide-download-wrap:hover .guide-download-tooltip,
-.guide-download-wrap:focus-within .guide-download-tooltip {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .guide-workspace-panel {
   display: flex;
   flex: 1;
@@ -396,21 +332,6 @@
 
   .guide-workspace-heading p {
     display: none;
-  }
-
-  .guide-heading-actions {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .guide-download > span {
-    display: none;
-  }
-
-  .guide-download-tooltip {
-    left: 0;
-    right: auto;
-    width: min(280px, calc(100vw - 34px));
   }
 
   .guide-workspace-content {

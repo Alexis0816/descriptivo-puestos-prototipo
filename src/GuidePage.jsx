@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, Download, Lightbulb } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, Lightbulb } from 'lucide-react';
 import { guideSections } from './data';
 import GuideExtras from './GuideExtras.jsx';
 
@@ -20,7 +19,7 @@ export default function GuidePage({ Shell }) {
   };
 
   return <Shell><div className="guide-workspace">
-    <header className="guide-workspace-heading"><div><span className="eyebrow">CENTRO DE AYUDA</span><h1>Guía de descriptivos</h1><p>Aprende a tu ritmo, sin salir de tu espacio de trabajo.</p></div><div className="guide-heading-actions"><span className="guide-download-wrap"><button type="button" className="btn guide-download" aria-disabled="true" aria-describedby="guide-download-hint" title="Disponible para descarga próximamente en Power Apps"><Download size={17}/> Descargar formato DP <span>Próximamente</span></button><span id="guide-download-hint" className="guide-download-tooltip" role="tooltip">En Power Apps podrás descargar el formato de descriptivo de puesto.</span></span><Link to="/menu" className="btn btn-outline"><ArrowLeft size={17}/> Menú</Link></div></header>
+    <header className="guide-workspace-heading"><div><span className="eyebrow">CENTRO DE AYUDA</span><h1>Guía de descriptivos</h1><p>Aprende a tu ritmo, sin salir de tu espacio de trabajo.</p></div></header>
 
     <div className="panel guide-workspace-panel"><div className="guide-workspace-nav"><nav className="guide-section-tabs" aria-label="Secciones de la guía">{guideSections.map((item, index) => <button type="button" key={item.title} className={lesson.sectionIndex === index ? 'guide-section-active' : ''} onClick={() => selectLesson(lessons.findIndex(entry => entry.sectionIndex === index))}>{item.title}</button>)}</nav><nav className="guide-lesson-tabs" aria-label="Lecciones de la sección">{section.lessons.map((item, index) => <button type="button" key={item.title} className={current === sectionStart + index ? 'guide-lesson-active' : ''} aria-current={current === sectionStart + index ? 'step' : undefined} onClick={() => selectLesson(sectionStart + index)}><span>{String(sectionStart + index + 1).padStart(2, '0')}</span>{item.title}</button>)}</nav></div>
 

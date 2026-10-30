@@ -15,8 +15,8 @@ Abre la dirección local que muestre Vite (por defecto `http://localhost:5173`).
 
 - **Inicio → Menú:** inicio claro basado en el aplicativo original y cuatro accesos principales sin información redundante.
 - **Consultar e Historial:** visibles pero bloqueados por ahora. Sus rutas muestran «Próximamente».
-- **Crear / Editar:** cinco etapas: datos generales; nueve resultados principales y cinco objetivos; dimensiones y cinco decisiones/recomendaciones; organización y contexto; perfil y revisión. Se puede guardar como borrador sin completar; finalizar exige todos los campos y muestra los pendientes por sección.
-- **Guía:** navegación compacta por secciones y lecciones, con lectura dentro del panel. Incluye fórmula «qué + dónde + para qué», verbos por nivel, ejemplos y plantilla de prompt. El botón «Descargar formato DP» es solo una vista previa: aún no descarga archivos. La plantilla de prompt **solo copia texto**; no hace llamadas a servicios de IA.
+- **Crear / Editar:** cinco etapas: datos generales; nueve resultados principales y cinco objetivos; dimensiones y cinco decisiones/recomendaciones; organización y contexto; perfil y revisión. Finalizar exige todos los campos y muestra los pendientes por sección. El botón «Descargar formato DP» es solo una vista previa: aún no descarga archivos. Se guarda siempre como descriptivo completo.
+- **Guía:** navegación compacta por secciones y lecciones, con lectura dentro del panel. Incluye fórmula «qué + dónde + para qué», verbos por nivel, ejemplos y plantilla de prompt. La plantilla de prompt **solo copia texto**; no hace llamadas a servicios de IA.
 
 El encabezado compacto permanece fijo y permite volver al menú; no hay barra lateral duplicada. El contenido del formulario y de la guía se desplaza dentro de su panel, y la tabla de resultados tiene desplazamiento propio. En pantallas pequeñas el listado pasa a tarjetas y los filtros se pueden desplegar. El acceso a la guía está en el menú principal.
 
