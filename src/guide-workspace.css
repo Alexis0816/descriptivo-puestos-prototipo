@@ -1,0 +1,456 @@
+.main-content:has(.guide-workspace) {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.guide-workspace {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 13px;
+  min-height: 0;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.guide-workspace-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  flex: none;
+}
+
+.guide-workspace-heading h1 {
+  color: #142358;
+  font-size: 27px;
+  letter-spacing: -.7px;
+  margin: 4px 0 2px;
+}
+
+.guide-workspace-heading p {
+  color: #8290a6;
+  font-size: 11px;
+  margin: 0;
+}
+
+.guide-heading-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.guide-heading-actions .btn {
+  min-height: 38px;
+  padding: 8px 12px;
+  font-size: 11px;
+}
+
+.guide-download-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.guide-download {
+  background: #fff8f1;
+  border-color: #ffd8bc;
+  color: #b65a20;
+  box-shadow: none;
+  cursor: help;
+}
+
+.guide-download:hover,
+.guide-download:focus-visible {
+  background: #ffefdf;
+  transform: none;
+}
+
+.guide-download > span {
+  border-radius: 4px;
+  background: #fff;
+  color: #a2714e;
+  padding: 3px 5px;
+  font-size: 9px;
+}
+
+.guide-download-tooltip {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 258px;
+  padding: 10px 12px;
+  border-radius: 7px;
+  background: #172b60;
+  color: white;
+  box-shadow: 0 9px 25px #1a2e5960;
+  font-size: 11px;
+  line-height: 1.45;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity .15s, transform .15s;
+}
+
+.guide-download-wrap:hover .guide-download-tooltip,
+.guide-download-wrap:focus-within .guide-download-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.guide-workspace-panel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.guide-workspace-nav {
+  flex: none;
+  border-bottom: 1px solid #eceff4;
+}
+
+.guide-section-tabs {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding: 13px 17px 10px;
+  scrollbar-width: thin;
+}
+
+.guide-section-tabs button {
+  flex: none;
+  border: 1px solid #e8ebf1;
+  border-radius: 7px;
+  background: #fff;
+  color: #62718a;
+  padding: 9px 11px;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.guide-section-tabs button:hover {
+  background: #f7f8fb;
+}
+
+.guide-section-tabs button.guide-section-active {
+  border-color: #ffd3bb;
+  background: #fff2e9;
+  color: #e45b14;
+}
+
+.guide-lesson-tabs {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding: 0 17px 12px;
+  scrollbar-width: thin;
+}
+
+.guide-lesson-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: none;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #63718a;
+  padding: 6px 9px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.guide-lesson-tabs button span {
+  color: #a1aabb;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.guide-lesson-tabs button:hover {
+  background: #f6f7fa;
+}
+
+.guide-lesson-tabs button.guide-lesson-active {
+  background: #eef2ff;
+  color: #1a338b;
+  font-weight: 800;
+}
+
+.guide-lesson-tabs button.guide-lesson-active span {
+  color: #eb6119;
+}
+
+.guide-workspace-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.guide-workspace-content {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 26px 34px 35px;
+}
+
+.guide-workspace-content h2 {
+  color: #101e63;
+  font-size: clamp(28px, 3vw, 38px);
+  letter-spacing: -1.2px;
+  line-height: 1.12;
+  margin: 11px 0 6px;
+}
+
+.guide-workspace-content h2 > span {
+  color: #ff6419;
+}
+
+.guide-workspace-content .guide-subtitle {
+  margin-bottom: 14px;
+}
+
+.guide-workspace-content .guide-intro {
+  max-width: 780px;
+  margin-bottom: 18px;
+}
+
+.guide-workspace-content .guide-extra {
+  margin-top: 15px;
+  margin-bottom: 18px;
+}
+
+.guide-highlight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  margin-bottom: 18px;
+  border-radius: 9px;
+  background: linear-gradient(120deg, #10287c, #2443a4);
+  color: white;
+}
+
+.guide-highlight > span {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  border-radius: 9px;
+  background: #ffffff20;
+  color: #ffc4a0;
+  flex: none;
+}
+
+.guide-highlight strong {
+  font: 600 17px Outfit, sans-serif;
+}
+
+.guide-highlight p {
+  margin: 4px 0 0;
+  color: #dce4fb;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.guide-workspace-content .guide-tips {
+  padding: 17px 21px;
+}
+
+.guide-workspace-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+  padding: 12px 20px;
+  border-top: 1px solid #eceff4;
+}
+
+.guide-workspace-footer > span {
+  color: #e76118;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.guide-workspace-footer > span b {
+  color: #a2adbd;
+}
+
+.guide-workspace-footer .btn {
+  min-height: 38px;
+  padding: 8px 12px;
+  font-size: 11px;
+}
+
+.guide-workspace-footer .btn:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+  transform: none;
+  box-shadow: none;
+}
+
+.coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-width: 470px;
+  margin: auto;
+  text-align: center;
+}
+
+.coming-soon-icon {
+  display: grid;
+  place-items: center;
+  width: 61px;
+  height: 61px;
+  margin-bottom: 20px;
+  border-radius: 13px;
+  background: #fff1e8;
+  color: #ed651c;
+}
+
+.coming-soon h1 {
+  color: #152556;
+  font-size: 29px;
+  margin: 9px 0 8px;
+}
+
+.coming-soon p {
+  color: #7a879d;
+  font-size: 13px;
+  line-height: 1.65;
+  margin-bottom: 19px;
+}
+
+.compact-action-disabled {
+  background: #f8f9fb;
+  border-color: #e9edf2;
+  cursor: not-allowed;
+}
+
+.compact-action-disabled:hover {
+  transform: none;
+  border-color: #e9edf2;
+  box-shadow: 0 4px 16px #14235408;
+}
+
+.compact-action-disabled .compact-action-icon {
+  background: #edf0f4 !important;
+  color: #929fb0 !important;
+}
+
+.compact-action-disabled .compact-action-copy,
+.compact-action-disabled .compact-action-copy small,
+.compact-action-disabled .compact-action-copy strong {
+  color: #8a97ab;
+}
+
+.compact-action-badge {
+  position: absolute;
+  bottom: 14px;
+  right: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #8997a9;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.menu-save-notice {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid #b7ead3;
+  border-radius: 8px;
+  background: #ecfbf2;
+  color: #147956;
+  padding: 10px 14px;
+  font-size: 11px;
+}
+
+@media (max-width: 700px) {
+  .guide-workspace {
+    gap: 10px;
+  }
+
+  .guide-workspace-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .guide-workspace-heading h1 {
+    font-size: 24px;
+  }
+
+  .guide-workspace-heading p {
+    display: none;
+  }
+
+  .guide-heading-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .guide-download > span {
+    display: none;
+  }
+
+  .guide-download-tooltip {
+    left: 0;
+    right: auto;
+    width: min(280px, calc(100vw - 34px));
+  }
+
+  .guide-workspace-content {
+    padding: 21px 18px 26px;
+  }
+
+  .guide-workspace-content h2 {
+    font-size: 28px;
+  }
+
+  .guide-workspace-content .guide-meta {
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 9px;
+    line-height: 1.4;
+  }
+
+  .guide-section-tabs {
+    padding: 10px 11px 8px;
+  }
+
+  .guide-lesson-tabs {
+    padding: 0 11px 9px;
+  }
+
+  .guide-workspace-footer {
+    padding: 10px 12px;
+  }
+
+  .guide-workspace-footer .btn {
+    font-size: 10px;
+  }
+
+  .compact-action-badge {
+    bottom: 9px;
+    right: 11px;
+    font-size: 9px;
+  }
+
+  .compact-action-disabled .compact-action-copy > span {
+    max-width: 190px;
+  }
+}

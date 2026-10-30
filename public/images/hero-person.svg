@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="580" viewBox="0 0 620 580" fill="none">
+  <ellipse cx="356" cy="558" rx="242" ry="17" fill="#f4f0e9"/>
+  <path d="M356 35c-104 0-184 82-184 187 0 108 48 206 104 303h296V239C572 127 480 35 356 35Z" fill="#fff9e3"/>
+  <path d="M188 524c-29-73-52-155-32-236C176 206 221 108 345 26" stroke="#fff1b9" stroke-width="3"/>
+  <path d="M155 524c-40-107-32-222 25-330C218 122 278 65 342 26" stroke="#fff6d6" stroke-width="3"/>
+  <path d="M223 526c-19-79-6-161 31-233 27-53 61-98 101-140" stroke="#ffedac" stroke-width="4"/>
+  <!-- Hair behind shoulders -->
+  <path d="M356 184c-66-9-107 30-103 97 4 35-5 52-18 82-15 35 3 57 38 61 39 4 71-13 107-13 39 0 79 24 118 8 27-11 37-34 17-65-17-26-23-54-17-87 12-69-49-113-142-83Z" fill="#26333a"/>
+  <!-- Neck and face -->
+  <path d="M338 337v52c0 31 67 31 67 0v-68" fill="#eea884"/>
+  <path d="M365 210c-47 0-83 42-83 97 0 60 38 100 85 100 49 0 86-43 86-103 0-57-37-94-88-94Z" fill="#ffc5a3"/>
+  <path d="M277 281c-4-63 31-102 90-108 51-6 91 24 98 78-31-5-44-25-58-44-18 31-75 49-130 74Z" fill="#26333a"/>
+  <path d="M288 287c-16-13-30-4-26 18 3 18 15 27 30 23M447 286c15-12 27-1 23 18-4 17-16 24-28 19" fill="#ffc5a3"/>
+  <!-- Brows and glasses -->
+  <path d="M310 286c15-9 32-9 45-2M389 284c13-7 27-6 39 1" stroke="#253239" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="332" cy="309" r="23" stroke="#313a3c" stroke-width="3"/><circle cx="406" cy="309" r="23" stroke="#313a3c" stroke-width="3"/>
+  <path d="M355 306c9-5 19-5 28 0M308 302l-20-6M430 302l19-6" stroke="#313a3c" stroke-width="3"/>
+  <circle cx="332" cy="309" r="3" fill="#26333a"/><circle cx="405" cy="309" r="3" fill="#26333a"/>
+  <path d="M369 314c-1 8-4 17-7 21 3 3 8 3 12 1M353 357c10 7 22 8 32 0" stroke="#b76d5b" stroke-width="3" stroke-linecap="round"/>
+  <!-- Torso / clothing -->
+  <path d="M322 386c-27 4-55 19-72 44l-58 98h333l-52-99c-15-25-43-37-71-43-17 20-63 20-80 0Z" fill="#ff705c"/>
+  <path d="M323 391c10 22 61 35 80 1M281 438l-17 74M451 435l18 77" stroke="#d9514c" stroke-width="3"/>
+  <!-- Pointing arm -->
+  <path d="M275 426c-27 20-57 26-79 11l-70-49c-11-7-18-4-20 4-3 10 8 23 24 36l64 59c37 33 72 26 101 6" fill="#ffc5a3"/>
+  <path d="M130 389c-20-18-39-38-43-53-2-7 2-12 8-11 9 2 24 19 35 27-9-15-25-36-23-43 2-7 9-7 14-2 11 11 31 34 37 42 14 6 21 17 17 28-5 11-22 20-45 12Z" fill="#ffc5a3"/>
+  <path d="M92 337c15 10 31 25 42 35M107 311c14 15 24 27 38 43" stroke="#e09b7b" stroke-width="2" stroke-linecap="round"/>
+  <!-- Laptop -->
+  <path d="M228 465h211c9 0 15 6 17 14l18 69H236l-22-69c-3-8 3-14 14-14Z" fill="#dce0e2" stroke="#a8b0b5" stroke-width="3"/>
+  <path d="M230 548h260l-9 11H217l13-11Z" fill="#a7afb2"/>
+  <circle cx="346" cy="508" r="10" fill="white"/>
+  <path d="M476 548h36c7 0 9 6 5 10H470Z" fill="#7d878b"/>
+</svg>

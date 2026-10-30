@@ -1,0 +1,259 @@
+/* El registro ocupa un área controlada, sin estirar las entradas a todo el viewport. */
+.dp-form-heading,
+.dp-wizard {
+  width: 100%;
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dp-wizard {
+  display: block;
+  overflow: hidden;
+}
+
+.dp-wizard-main {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+
+.dp-wizard-top {
+  padding: 16px 28px 0;
+}
+
+.dp-wizard-top-label {
+  gap: 16px;
+}
+
+.dp-wizard-top-label > span:last-child {
+  color: #8895aa;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.dp-horizontal-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 7px;
+  padding: 12px 28px 0;
+  flex: none;
+}
+
+.dp-horizontal-step {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  min-height: 57px;
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  text-align: left;
+  color: #5d6b85;
+  transition: background .18s, border-color .18s;
+}
+
+.dp-horizontal-step:hover {
+  background: #f8f9fc;
+}
+
+.dp-horizontal-step-active,
+.dp-horizontal-step-active:hover {
+  border-color: #ffdfcd;
+  background: #fff4ed;
+  color: #db5513;
+}
+
+.dp-horizontal-step-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #eef1f5;
+  color: #7d8ba1;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.dp-horizontal-step-active .dp-horizontal-step-icon {
+  background: #ff6619;
+  color: white;
+}
+
+.dp-horizontal-step-done:not(.dp-horizontal-step-active) .dp-horizontal-step-icon {
+  background: #e6f8ef;
+  color: #149a6d;
+}
+
+.dp-horizontal-step-copy {
+  min-width: 0;
+}
+
+.dp-horizontal-step-copy strong,
+.dp-horizontal-step-copy small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dp-horizontal-step-copy strong {
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.dp-horizontal-step-copy small {
+  margin-top: 3px;
+  color: #a0aabc;
+  font-size: 9px;
+}
+
+.dp-wizard-progress {
+  margin: 12px 28px 0;
+}
+
+.dp-wizard-body {
+  padding: 22px 32px 28px;
+}
+
+.dp-step-heading,
+.dp-field-group {
+  width: 100%;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dp-step-heading {
+  margin-bottom: 20px;
+}
+
+.dp-field-group + .dp-field-group {
+  margin-top: 22px;
+  padding-top: 20px;
+}
+
+.dp-input-grid {
+  gap: 14px 20px;
+}
+
+.dp-input-grid .field input,
+.dp-input-grid .field select {
+  height: 42px;
+}
+
+.dp-pair-section,
+.dp-objectives,
+.dp-writing-tip,
+.dp-review,
+.dp-alert {
+  width: 100%;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dp-dimensions .dp-full,
+.dp-profile-fields .dp-full {
+  grid-column: auto;
+}
+
+.dp-dimensions textarea,
+.dp-profile-fields textarea {
+  min-height: 110px;
+}
+
+.dp-objective-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px 18px;
+}
+
+.dp-wizard-footer {
+  padding: 13px 28px;
+}
+
+@media (max-width: 1050px) {
+  .dp-horizontal-step {
+    padding: 8px;
+    gap: 7px;
+  }
+
+  .dp-horizontal-step-copy small {
+    display: none;
+  }
+
+  .dp-horizontal-steps {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .dp-wizard-top {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .dp-wizard-progress {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .dp-form-heading {
+    margin-bottom: 12px;
+  }
+
+  .dp-horizontal-steps {
+    gap: 4px;
+    padding: 9px 13px 0;
+  }
+
+  .dp-horizontal-step {
+    justify-content: center;
+    min-height: 42px;
+    padding: 5px;
+  }
+
+  .dp-horizontal-step-copy {
+    display: none;
+  }
+
+  .dp-horizontal-step-icon {
+    width: 29px;
+    height: 29px;
+  }
+
+  .dp-wizard-top {
+    padding: 13px 15px 0;
+  }
+
+  .dp-wizard-progress {
+    margin: 9px 15px 0;
+  }
+
+  .dp-wizard-body {
+    padding: 17px 17px 22px;
+  }
+
+  .dp-input-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dp-dimensions .dp-full,
+  .dp-profile-fields .dp-full {
+    grid-column: 1 / -1;
+  }
+
+  .dp-objective-list {
+    grid-template-columns: 1fr;
+  }
+
+  .dp-wizard-footer {
+    padding: 11px 15px;
+  }
+}

@@ -1,0 +1,30 @@
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ArrowLeft, ChevronDown, FilePlus2, FileText, FilterX, Pencil, Search, X } from 'lucide-react';
+import { isActiveDP } from './dpSchema';
+
+const unique = list => [...new Set(list.filter(Boolean))];
+
+function FilterSelect({ label, value, options, onChange, placeholder, disabled }) {
+  return <label className="field"><span className="field-label">{label}</span><span className="select-wrap"><select value={value} onChange={e => onChange(e.target.value)} disabled={disabled}><option value="">{placeholder}</option>{options.map(value => <option key={value} value={value}>{value}</option>)}</select><ChevronDown size={16}/></span></label>;
+}
+
+export default function Directory({ documents, Shell, inactive = false }) {
+  const navigate = useNavigate();
+  const [filters, setFilters] = useState({ gerencia: '', area: '', uo: '', posicion: '' });
+  const [query, setQuery] = useState('');
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const setFilter = (field, value) => setFilters(previous => ({ ...previous, [field]: value,
+    ...(field === 'gerencia' ? { area: '', uo: '', posicion: '' } : field === 'area' ? { uo: '', posicion: '' } : field === 'uo' ? { posicion: '' } : {}),
+  }));
+  const visibleDocuments = documents.filter(doc => inactive ? !isActiveDP(doc) : isActiveDP(doc));
+  const scoped = visibleDocuments.filter(item => (!filters.gerencia || item.gerencia === filters.gerencia) && (!filters.area || item.area === filters.area) && (!filters.uo || item.uo === filters.uo));
+  const normalized = query.trim().toLocaleLowerCase('es');
+  const results = visibleDocuments.filter(doc => Object.entries(filters).every(([key, value]) => !value || doc[key] === value)
+    && (!normalized || [doc.posicion, doc.tituloPuesto, doc.area, doc.uo, doc.gerencia].some(text => text?.toLocaleLowerCase('es').includes(normalized))));
+  const clear = () => { setFilters({ gerencia: '', area: '', uo: '', posicion: '' }); setQuery(''); };
+  const complete = visibleDocuments.filter(doc => doc.estado === 'Completo').length;
+  return <Shell><div className="directory-page"><div className="directory-heading"><div><span className="eyebrow">{inactive ? 'HISTÓRICO · SOLO LECTURA' : 'CONSULTAR · PUESTOS ACTIVOS'}</span><h1>{inactive ? 'Puestos inactivos' : 'Descriptivos de puesto'}</h1></div><div className="directory-actions"><span className="directory-counter"><b>{visibleDocuments.length}</b> {inactive ? 'inactivos' : 'activos'} <i/> <b>{complete}</b> completos</span>{inactive ? <Link className="btn btn-outline" to="/consultar" title="Volver a puestos activos"><ArrowLeft size={17}/> Ver activos</Link> : <Link className="btn btn-primary" to="/crear"><FilePlus2 size={17}/> Crear DP</Link>}</div></div>
+    <section className="panel directory-filters"><div className="directory-filter-top"><span>Filtrar por estructura</span><div><button className="mobile-filter-toggle" type="button" onClick={() => setFiltersOpen(!filtersOpen)}>{filtersOpen ? 'Ocultar' : 'Mostrar'} filtros <ChevronDown size={15}/></button><button className="text-button" type="button" onClick={clear}><FilterX size={15}/> Limpiar</button></div></div><div className={`directory-filter-grid ${filtersOpen ? 'filter-grid-open' : ''}`}><FilterSelect label="Gerencia" value={filters.gerencia} options={unique(visibleDocuments.map(c => c.gerencia))} onChange={v => setFilter('gerencia', v)} placeholder="Todas"/><FilterSelect label="Área" value={filters.area} options={unique(scoped.map(c => c.area))} onChange={v => setFilter('area', v)} placeholder="Todas" disabled={!filters.gerencia}/><FilterSelect label="Unidad organizativa" value={filters.uo} options={unique(scoped.map(c => c.uo))} onChange={v => setFilter('uo', v)} placeholder="Todas" disabled={!filters.area}/><FilterSelect label="Posición" value={filters.posicion} options={unique(scoped.map(c => c.posicion))} onChange={v => setFilter('posicion', v)} placeholder="Todas" disabled={!filters.uo}/></div><div className="search-row"><Search size={18}/><input value={query} onChange={e => setQuery(e.target.value)} placeholder="Buscar posición, área o unidad organizativa…" aria-label="Buscar descriptivos"/>{query && <button type="button" aria-label="Borrar búsqueda" onClick={() => setQuery('')}><X size={17}/></button>}</div></section>
+    <section className="panel directory-results"><div className="directory-results-header"><h2>Resultados <span>{results.length}</span></h2><small>{results.length} de {visibleDocuments.length} descriptivos</small></div><div className="directory-table"><table><thead><tr><th>POSICIÓN</th><th>GERENCIA / ÁREA</th><th>UO</th><th>ESTADO</th><th>AÑO</th><th className="right-cell">ACCIONES</th></tr></thead><tbody>{results.map(doc => <tr key={doc.id}><td><div className="position-cell"><span className="doc-icon"><FileText size={18}/></span><div><strong>{doc.posicion}</strong><small>{doc.pais}</small></div></div></td><td><div className="two-line"><strong>{doc.gerencia}</strong><small>{doc.area}</small></div></td><td>{doc.uo}</td><td><span className={`status status-${doc.estado === 'Completo' ? 'complete' : 'draft'}`}><span/>{doc.estado}</span></td><td>{doc.anio}</td><td className="right-cell"><div className="row-actions"><button type="button" title="Ver descriptivo" aria-label={`Ver ${doc.posicion}`} onClick={() => navigate(`/descriptivo/${doc.id}`)}><Search size={17}/></button>{!inactive && <button type="button" title="Editar descriptivo" aria-label={`Editar ${doc.posicion}`} onClick={() => navigate(`/editar/${doc.id}`)}><Pencil size={16}/></button>}</div></td></tr>)}</tbody></table>{results.length === 0 && <div className="empty-state"><Search size={25}/><h3>Sin resultados</h3><p>Prueba con otros filtros o busca otra posición.</p><button className="btn btn-outline" onClick={clear}>Limpiar búsqueda</button></div>}</div><div className="directory-results-footer">Desliza dentro del listado para ver más descriptivos <span>Datos de demostración</span></div></section></div></Shell>;
+}
