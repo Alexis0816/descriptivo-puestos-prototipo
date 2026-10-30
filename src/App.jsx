@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
-import { LayoutDashboard, LogOut } from 'lucide-react';
+import { Link, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { ChevronLeft } from 'lucide-react';
 import { archivedExamples, initialDocuments } from './data';
 import DPForm from './DPForm.jsx';
 import LandingPage from './LandingPage.jsx';
@@ -18,8 +18,15 @@ function Brand({ light = false, tagline = true }) {
 }
 
 function Shell({ children }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const goBack = () => {
+    if (location.pathname === '/menu') return navigate('/');
+    if (location.key === 'default') return navigate('/menu');
+    navigate(-1);
+  };
   return <div className="app-shell"><div className="shell-main">
-    <header className="topbar"><div className="topbar-left"><Link to="/menu" className="topbar-brand" aria-label="Volver al menú"><Brand tagline={false}/></Link><span className="topbar-divider"/><span className="topbar-title">DESCRIPTIVO DE PUESTOS</span></div><div className="topbar-right"><span className="demo-pill">PROTOTIPO DEMO</span><Link to="/menu" className="topbar-menu"><LayoutDashboard size={16}/> Menú</Link><Link to="/" title="Salir" aria-label="Salir" className="topbar-exit"><LogOut size={18}/></Link></div></header>
+    <header className="topbar"><div className="topbar-left"><Link to="/menu" className="topbar-brand" aria-label="Volver al menú"><Brand tagline={false}/></Link><span className="topbar-divider"/><span className="topbar-title">DESCRIPTIVO DE PUESTOS</span></div><div className="topbar-right"><button type="button" className="topbar-back" onClick={goBack} aria-label="Volver" title="Volver"><ChevronLeft size={19}/></button></div></header>
     <main className="main-content">{children}</main>
   </div></div>;
 }
