@@ -6,7 +6,9 @@ import DPForm from './DPForm.jsx';
 import LandingPage from './LandingPage.jsx';
 import MenuPage from './MenuPage.jsx';
 import GuidePage from './GuidePage.jsx';
-import ComingSoon from './ComingSoon.jsx';
+import Directory from './Directory.jsx';
+import DPDetail from './DPDetail.jsx';
+import DPAttachmentForm from './DPAttachmentForm.jsx';
 
 const STORAGE_KEY = 'primax-dp-prototipo-v1';
 
@@ -44,12 +46,12 @@ export default function App() {
   return <Routes>
     <Route path="/" element={<LandingPage/>}/>
     <Route path="/menu" element={<MenuPage Shell={Shell}/>}/>
-    <Route path="/consultar" element={<ComingSoon Shell={Shell} title="Consultar descriptivos"/>}/>
-    <Route path="/inactivos" element={<ComingSoon Shell={Shell} title="Historial de descriptivos"/>}/>
+    <Route path="/consultar" element={<Directory documents={documents} Shell={Shell}/>}/>
+    <Route path="/inactivos" element={<Directory documents={documents} Shell={Shell} inactive/>}/>
     <Route path="/guia" element={<GuidePage Shell={Shell}/>}/>
     <Route path="/crear" element={<DPForm documents={documents} onSave={onSave} Shell={Shell}/>}/>
-    <Route path="/editar/:id" element={<ComingSoon Shell={Shell} title="Editar descriptivos"/>}/>
-    <Route path="/descriptivo/:id" element={<ComingSoon Shell={Shell} title="Consultar descriptivos"/>}/>
+    <Route path="/editar/:id" element={<DPAttachmentForm documents={documents} onSave={onSave} Shell={Shell}/>}/>
+    <Route path="/descriptivo/:id" element={<DPDetail documents={documents} Shell={Shell}/>}/>
     <Route path="*" element={<LandingPage/>}/>
   </Routes>;
 }

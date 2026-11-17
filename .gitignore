@@ -4,3 +4,9 @@ dist/
 *.log
 graphify-out/
 Prompt DP.pdf
+tmp/
+tmp/
+public/
+powerapps/
+tools/
+docs/
